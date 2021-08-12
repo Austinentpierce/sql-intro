@@ -111,6 +111,11 @@ FROM "Departments"
 JOIN "Employees" ON "Employees"."DepartmentId" = "Departments"."Id"
 WHERE "Departments"."Building" = 'North';
 
+SELECT *
+FROM "Departments"
+JOIN "Employees" ON "Employees"."DepartmentId" = "Departments"."Id"
+WHERE "Departments"."Building" = 'East';
+
 
 SELECT * 
 FROM "ProductOrders"
