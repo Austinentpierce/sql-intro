@@ -106,8 +106,19 @@ VALUES (3, 1, 1);
 INSERT INTO "ProductOrders" ("OrderQuantity", "OrderID", "ProductId")
 VALUES (2, 1, 2);
 
+SELECT *
+FROM "Departments"
+JOIN "Employees" ON "Employees"."DepartmentId" = "Departments"."Id"
+WHERE "Departments"."Building" = 'North';
 
 
 SELECT * 
 FROM "ProductOrders"
 WHERE "ProductId" = 2; 
+
+SELECT "ProductOrders"."OrderQuantity"
+FROM "ProductsOrders"
+JOIN "Orders" ON "ProductOrders"."OrderID" = "Orders"."Id"
+JOIN "Products" ON "ProductOrders"."ProductId" = "Products"."Id"
+WHERE "Products"."Name" = 'Flowbee'
+	AND "Orders"."OrderNumber" = 'X529';
