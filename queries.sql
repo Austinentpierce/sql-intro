@@ -93,3 +93,7 @@ VALUES (99.99, 'Flowbee', 'Perfect for haircuts', 3);
 
 INSERT INTO "Orders" ("OrderNumber", "DatePlaced", "Email")
 VALUES ('X529', '01/01/20 at 4:55PM', 'person@example.com');
+
+UPDATE "Products"
+SET "QuantityInStock" = '103'
+Where "Name" = 'Widget';
