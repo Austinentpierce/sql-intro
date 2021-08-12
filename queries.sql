@@ -67,6 +67,12 @@ CREATE TABLE "Orders" (
 "Email" TEXT
 );
 
+CREATE TABLE "ProductOrders" (
+  "Id" SERIAL PRIMARY KEY, 
+  "OrderQuantity" INT, 
+  "OrderID" INTEGER NULL REFERENCES "Orders" ("Id"),
+  "ProductId" INTEGER NULL REFERENCES "Products" ("Id")
+  );
 
 
 INSERT INTO "Departments" ("DepartmentName", "Building")
@@ -94,10 +100,14 @@ VALUES (99.99, 'Flowbee', 'Perfect for haircuts', 3);
 INSERT INTO "Orders" ("OrderNumber", "DatePlaced", "Email")
 VALUES ('X529', '01/01/20 at 4:55PM', 'person@example.com');
 
-UPDATE "Products"
-SET "QuantityInStock" = '103'
-Where "Name" = 'Widget';
+INSERT INTO "ProductOrders" ("OrderQuantity", "OrderID", "ProductId")
+VALUES (3, 1, 1);
 
-UPDATE "Products"
-SET "QuantityInStock" = '5'
-Where "Name" = 'Flowbee';
+INSERT INTO "ProductOrders" ("OrderQuantity", "OrderID", "ProductId")
+VALUES (2, 1, 2);
+
+
+
+SELECT * 
+FROM "ProductOrders"
+WHERE "ProductId" = 2; 
